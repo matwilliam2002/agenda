@@ -1,0 +1,1 @@
+// Se quer saber como funciona leia a parte de teste
