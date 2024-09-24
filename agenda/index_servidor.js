@@ -33,26 +33,32 @@ app.use(cors());
 
 
 
+// Tabelas e conexao com mysql
+const conexao = require("./infraestrutura/conexao")
+const Tabelas = require("./infraestrutura/Tabelas")
+
 // rotas 
 
 const rotaTarefa = require("./rotas/rotaTarefa")
 
 
-app.use("/",rotaTarefa)
+
 
 // vou usar no futuro, como não tem database então ...
 
 
-// conexao.connect(erro=>{
-//     if(erro){
-//         console.log(erro);
+conexao.connect(erro=>{
+    if(erro){
+        console.log(erro);
         
-//     }else{
-        
-//     }
-// })
-
-server.listen(port,()=>{
-    console.log(`Está open na porta : http://localhost:${port}/ `);
-    
+    }else{
+        Tabelas.init(conexao)
+        app.use("/",rotaTarefa)
+        server.listen(port,()=>{
+            console.log(`Está open na porta : http://localhost:${port}/ `);
+            
+        })
+    }
 })
+
+

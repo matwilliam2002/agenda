@@ -9,6 +9,7 @@ class Tabelas{
         // executa os metodos 
 
         // this.criarTabelaDemonstração() 
+        this.criarTarefas()
 
     }
     // nesta parte estou mostrando como criar uma tabela sql somente para demonstração 
@@ -23,10 +24,21 @@ class Tabelas{
             if(erro){
                 console.log(erro);
             }else{
-                console.log("Tabela Escola criada ");
+                console.log("Tabela Teste criada ");
             }
         })
 
+    }
+
+    criarTarefas(){
+        const sql = `CREATE TABLE IF NOT EXISTS Tarefas (id int AUTO_INCREMENT,nome varchar(100),cor varchar(10),data date,descricao varchar(255), PRIMARY KEY(id) )`
+        this.conexao.query(sql, erro=>{
+            if(erro){
+                console.log(erro);
+            }else{
+                console.log("Tabela Tarefas criada ");
+            }
+        })
     }
     
 }
