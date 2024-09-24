@@ -6,6 +6,10 @@ class Tabelas{
         // Com a conexao estabelecida na parte do index_servidor, então utilizaremos todos os comandos da biblioteca mysql 
         this.conexao = conexao;
          
+        // executa os metodos 
+
+        // this.criarTabelaDemonstração() 
+
     }
     // nesta parte estou mostrando como criar uma tabela sql somente para demonstração 
     criarTabelaDemonstração(){
@@ -24,4 +28,7 @@ class Tabelas{
         })
 
     }
+    
 }
+
+module.exports = new Tabelas;

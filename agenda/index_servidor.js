@@ -32,6 +32,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
 
+
+// rotas 
+
+const rotaTarefa = require("./rotas/rotaTarefa")
+
+
+app.use("/",rotaTarefa)
+
 // vou usar no futuro, como não tem database então ...
 
 

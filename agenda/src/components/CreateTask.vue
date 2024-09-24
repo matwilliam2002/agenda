@@ -1,13 +1,15 @@
 <template>
   <div class="create-task">
     <h2>Criar Nova Tarefa</h2>
-    <form @submit.prevent="addTask">
+    <form @submit.prevent="addTask" >
       <div class="form-group">
         <label for="task-name">Nome da Tarefa:</label>
         <input
           v-model="taskName"
           type="text"
           id="task-name"
+          name="nome"
+       
           placeholder="Digite o nome da tarefa"
           required
         />
@@ -19,6 +21,7 @@
           v-model="taskColor"
           type="color"
           id="task-color"
+          name="cor"
           required
         />
       </div>
@@ -40,7 +43,7 @@ export default {
   name: 'CreateTask',
   data() {
     return {
-      taskName: '', // Inicialize como uma string vazia
+      taskName: '',
       taskColor: '#ffffff',
       tasks: []
     };
@@ -48,7 +51,27 @@ export default {
   methods: {
     addTask() {
       if (this.taskName && this.taskColor) {
-        // Adiciona a tarefa à lista de tarefas
+        // Faz uma requisição POST ao servidor Express
+        fetch("http://localhost:3000/adicionaTarefa", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            nome: this.taskName,
+            cor: this.taskColor
+          })
+        })
+        .then(response => {
+          if (!response.ok) {
+            console.error("Erro ao enviar a tarefa.");
+          }
+        })
+        .catch(error => {
+          console.error("Erro:", error);
+        });
+
+        // Adiciona a tarefa à lista local imediatamente
         this.tasks.push({
           name: this.taskName,
           color: this.taskColor
@@ -62,6 +85,7 @@ export default {
   }
 };
 </script>
+
 
 <style scoped>
 .create-task {

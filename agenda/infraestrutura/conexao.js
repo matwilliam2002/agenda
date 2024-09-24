@@ -1,4 +1,5 @@
-import mysql from mysql;
+// import mysql from mysql;
+const mysql = require("mysql")
 const conexao = mysql.createConnection({
     host:"localhost",
     port: 3306,
@@ -7,4 +8,5 @@ const conexao = mysql.createConnection({
     database:""
 })
 
-export default conexao;
+// export default conexao;
+module.exports = conexao;
