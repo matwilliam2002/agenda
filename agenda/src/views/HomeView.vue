@@ -19,6 +19,7 @@
 <script>
 import { ref, onMounted } from 'vue';
 import AppNavbar from '@/components/AppNavbar.vue';
+import '@/assets/css/HomeView.css'; 
 
 export default {
   name: 'HomeView',
@@ -59,18 +60,7 @@ export default {
   },
 };
 </script>
-
+<!-- 
 <style scoped>
-/* Estilos adicionais para as tarefas */
-ul {
-  list-style-type: none;
-  padding: 0;
-}
 
-li {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  color: white;
-}
-</style>
+</style> -->
