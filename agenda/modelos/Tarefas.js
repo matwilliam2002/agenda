@@ -3,9 +3,9 @@
 
 const conexao = require("../infraestrutura/conexao");
 
-class Tarefa{
+class Tarefas{
     listar(){
-        const sql = `SELECT * FROM Tarefa`;
+        const sql = `SELECT * FROM Tarefas`;
 
         return new Promise((resolve,reject)=>{
             conexao.query(sql,(erro,resultado)=>{
@@ -18,7 +18,7 @@ class Tarefa{
         })
     }
     tarefaUnica(id){
-        const sql = `SELECT * FROM Tarefa WHERE id=${id}`;
+        const sql = `SELECT * FROM Tarefas WHERE id=${id}`;
 
         return new Promise((resolve,reject)=>{
             conexao.query(sql,(erro,resultado)=>{
@@ -31,12 +31,16 @@ class Tarefa{
         })
     }
     adiciona(dados){
-        const sql = `INSERT INTO Tarefa set ?`
+        const sql = `INSERT INTO Tarefas set ?`
         return new Promise((resolve, reject )=>{
             conexao.query(sql,dados,(erro,resultado)=>{
                 if(erro){
+                    console.log(erro);
+                    
                     reject(erro)
                 }else{
+                    console.log(resultado);
+                    
                     resolve(resultado);
                 }
             })
@@ -46,4 +50,4 @@ class Tarefa{
    
 }
 
-module.exports = new Tarefa;
+module.exports = new Tarefas;
