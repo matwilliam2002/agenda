@@ -1,17 +1,11 @@
 <template>
   <div id="app">
     <AppNavbar msg="Minha Marca" />
-    
-   
     <div>
-    
       <ul>
-        <li v-for="(task, index) in tasks" :key="index" :style="{ backgroundColor: task.cor }">
-          {{ task.nome }}
-        </li>
+        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
       </ul>
     </div>
-
     <router-view />
   </div>
 </template>
@@ -19,48 +13,39 @@
 <script>
 import { ref, onMounted } from 'vue';
 import AppNavbar from '@/components/AppNavbar.vue';
+import TaskItem from '@/components/TaskItem.vue';
 import '@/assets/css/HomeView.css'; 
 
 export default {
   name: 'HomeView',
   components: {
     AppNavbar,
+    TaskItem
   },
   setup() {
-    // Variável reativa para armazenar as tarefas
     const tasks = ref([]);
 
-    // Função para buscar as tarefas
     const fetchTasks = async () => {
       try {
-        fetch('http://localhost:3000/listaTarefa',{
-          method:'GET',
-          headers:{'Content-Type':'application/json'}
-        })
-        .then(dados=>dados.json())
-        .then(dados=>tasks.value = dados);
-        // const data = await response.json();
-        // console.log(data);
-        
-        // tasks.value = data; 
+        const response = await fetch('http://localhost:3000/listaTarefa', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await response.json();
+        tasks.value = data;
       } catch (error) {
         console.error('Erro ao buscar tarefas:', error);
       }
     };
 
-    // Executa a função quando o componente é montado
     onMounted(() => {
       fetchTasks();
     });
 
-    // Retorna as tarefas para o template
     return {
       tasks,
     };
   },
 };
 </script>
-<!-- 
-<style scoped>
 
-</style> -->

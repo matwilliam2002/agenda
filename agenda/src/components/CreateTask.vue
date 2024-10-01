@@ -1,7 +1,7 @@
 <template>
   <div class="create-task">
     <h2>Criar Nova Tarefa</h2>
-    <form @submit.prevent="addTask" >
+    <form @submit.prevent="addTask">
       <div class="form-group">
         <label for="task-name">Nome da Tarefa:</label>
         <input
@@ -9,7 +9,6 @@
           type="text"
           id="task-name"
           name="nome"
-       
           placeholder="Digite o nome da tarefa"
           required
         />
@@ -31,16 +30,20 @@
 
     <h3>Tarefas Criadas</h3>
     <ul>
-      <li v-for="(task, index) in tasks" :key="index" :style="{ backgroundColor: task.color }">
-        {{ task.name }}
-      </li>
+      <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
     </ul>
   </div>
 </template>
 
 <script>
+import TaskItem from '@/components/TaskItem.vue';
+import '@/assets/css/CreateTask.css'; 
+
 export default {
   name: 'CreateTask',
+  components: {
+    TaskItem
+  },
   data() {
     return {
       taskName: '',
@@ -73,8 +76,8 @@ export default {
 
         // Adiciona a tarefa à lista local imediatamente
         this.tasks.push({
-          name: this.taskName,
-          color: this.taskColor
+          nome: this.taskName,
+          cor: this.taskColor
         });
 
         // Limpa o formulário após adicionar a tarefa
@@ -85,64 +88,3 @@ export default {
   }
 };
 </script>
-
-
-<style scoped>
-.create-task {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-input[type="color"] {
-  width: 100%;
-  padding: 5px;
-  border: none;
-}
-
-button {
-  background-color: #42b983;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #37946e;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 3px;
-  color: white;
-}
-</style>
