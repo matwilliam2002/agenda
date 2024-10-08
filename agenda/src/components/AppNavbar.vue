@@ -1,15 +1,13 @@
 <template>
   <nav class="AppNavbar">
     <div class="navbar-brand">
-      <router-link to="/" class="navbar-item">{{ msg }}</router-link> <!-- Exemplo de uso da prop -->
+      <router-link to="/" class="navbar-item">Lista de tarefas</router-link>
     </div>
 
     <div class="navbar-menu">
       <ul class="navbar-start">
         <li><router-link to="/home" class="navbar-item">Home</router-link></li>
-        <li><router-link to="/about" class="navbar-item">About</router-link></li>
         <li><router-link to="/tarefas" class="navbar-item">Tarefas</router-link></li>
-        <li><router-link to="/contact" class="navbar-item">Contact</router-link></li>
       </ul>
     </div>
   </nav>
@@ -17,12 +15,12 @@
 
 <style scoped>
 .AppNavbar {
-  background-color: #2c3e50; /* Cor de fundo da navbar */
+  background-color: #2c3e50; 
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para dar profundidade */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .navbar-brand .navbar-item {
@@ -34,7 +32,7 @@
 
 .navbar-menu .navbar-start {
   display: flex;
-  gap: 1.5rem; /* Espaçamento entre os itens */
+  gap: 1.5rem; 
 }
 
 .navbar-item {
@@ -45,8 +43,8 @@
 }
 
 .navbar-item:hover {
-  color: #42b983; /* Efeito hover, mudando a cor para verde */
-  text-decoration: underline; /* Sublinha o link ao passar o mouse */
+  color: #42b983; 
+  text-decoration: underline; 
 }
 
 /* Responsividade */

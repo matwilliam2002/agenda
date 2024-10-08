@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AppNavbar msg="Minha Marca" />
+    <AppNavbar />
     <router-view />
   </div>
 </template>

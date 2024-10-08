@@ -1,0 +1,25 @@
+/* Estilos adicionais para as tarefas */
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+
+  }
+/* 
+  .task-nome {
+    font-weight: bold;
+  }
+  
+  .task-marker {
+
+    width: 10px;
+ 
+    margin-left: 10px;
+  } */
+  
