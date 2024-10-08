@@ -47,6 +47,19 @@ class Tarefas{
         })
        
     }
+    deletar(id) {
+        const sql = `DELETE FROM Tarefas WHERE id = ?;`;
+        return new Promise((resolve, reject) => {
+            conexao.query(sql, [id], (erro, resultado) => {
+                if (erro) {
+                    reject(erro);
+                } else {
+                    resolve(resultado);
+                }
+            });
+        });
+    }
+    
    
 }
 

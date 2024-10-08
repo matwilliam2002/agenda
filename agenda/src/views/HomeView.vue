@@ -3,7 +3,7 @@
     <AppNavbar msg="Minha Marca" />
     <div>
       <ul>
-        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
+        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" @task-deleted="removeTaskFromList" />
       </ul>
     </div>
     <router-view />
@@ -32,10 +32,15 @@ export default {
           headers: { 'Content-Type': 'application/json' }
         });
         const data = await response.json();
+        
         tasks.value = data;
       } catch (error) {
         console.error('Erro ao buscar tarefas:', error);
       }
+    };
+
+    const removeTaskFromList = (taskId) => {
+      tasks.value = tasks.value.filter(task => task.id !== taskId);
     };
 
     onMounted(() => {
@@ -44,8 +49,8 @@ export default {
 
     return {
       tasks,
+      removeTaskFromList
     };
   },
 };
 </script>
-
