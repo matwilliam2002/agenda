@@ -28,9 +28,9 @@ export default {
           headers: { 'Content-Type': 'application/json' }
         });
 
-        // if (!response.ok) {
-        //   throw new Error(`Erro ao deletar tarefa: ${response.statusText}`);
-        // }
+        if (!response.ok) {
+          throw new Error(`Erro ao deletar tarefa: ${response.statusText}`);
+        }
 
         // Verifica se a resposta é JSON válida
         const responseData = await response.json().catch(() => null);

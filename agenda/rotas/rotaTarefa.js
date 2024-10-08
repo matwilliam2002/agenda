@@ -21,8 +21,8 @@ rota.post("/adicionaTarefa",async (req,res)=>{
 rota.delete("/deletarTarefa", async (req,res)=>{
     const id = req.body.id;
     try {
-        // Lógica para deletar a tarefa do banco de dados
-        await Tarefa.deletar(Id); // Supondo que esta função deleta a tarefa
+        
+        await Tarefa.deletar(id); 
     
         res.status(200).json({ message: 'Tarefa deletada com sucesso' });
     } 
