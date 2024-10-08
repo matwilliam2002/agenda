@@ -1,8 +1,10 @@
 <template>
-    <li class="task-item">
-      <span class="task-nome">{{ task.nome }}</span>
+    <div class="task-item">
       <span class="task-marker" :style="{ backgroundColor: task.cor }"></span>
-    </li>
+      <span class="task-nome">{{ task.nome }}</span>
+      <span class="material-icons">select_check_box</span>
+      <span class="material-icons">delete</span>
+    </div>
   </template>
   
   <script>
@@ -17,6 +19,8 @@
     }
   };
   </script>
-  
 
-  
+<style lang="css">
+    @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+</style>
+

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <AppNavbar msg="Minha Marca" />
-    <h1 class="titulo-tarefas">Tarefas</h1>
+    <AppNavbar/>
     <CreateTask />
     <router-view />
   </div>

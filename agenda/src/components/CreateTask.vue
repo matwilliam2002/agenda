@@ -1,38 +1,47 @@
 <template>
-  <div class="create-task">
-    <h2>Criar Nova Tarefa</h2>
-    <form @submit.prevent="addTask">
-      <div class="form-group">
-        <label for="task-name">Nome da Tarefa:</label>
-        <input
-          v-model="taskName"
-          type="text"
-          id="task-name"
-          name="nome"
-          placeholder="Digite o nome da tarefa"
-          required
-        />
+
+  <div class="conteiner">
+
+
+    <div class="created-tasks">
+      <h3>Tarefas Criadas</h3>
+      <div class="tarefas-criadas">
+        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
       </div>
+    </div>
+    <div class="create-task">
+      <h2>Criar Nova Tarefa</h2>
+      <form @submit.prevent="addTask">
+        <div class="form-group">
+          <label for="task-name">Nome da Tarefa:</label>
+          <input
+            v-model="taskName"
+            type="text"
+            id="task-name"
+            name="nome"
+            placeholder="Digite o nome da tarefa"
+            required
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="task-color">Cor da Tarefa:</label>
-        <input
-          v-model="taskColor"
-          type="color"
-          id="task-color"
-          name="cor"
-          required
-        />
-      </div>
+        <div class="form-group">
+          <label for="task-color">Cor da Tarefa:</label>
+          <input
+            v-model="taskColor"
+            type="color"
+            id="task-color"
+            name="cor"
+            required
+          />
+        </div>
+        <button class="add-task" type="submit">Adicionar Tarefa</button>
+      </form>
+    </div>
 
-      <button type="submit">Adicionar Tarefa</button>
-    </form>
 
-    <h3>Tarefas Criadas</h3>
-    <ul>
-      <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
-    </ul>
   </div>
+
+  
 </template>
 
 <script>
