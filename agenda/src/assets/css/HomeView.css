@@ -1,4 +1,17 @@
 /* Estilos adicionais para as tarefas */
+
+.conteiner-de-tarefas {
+  background-color: azure;
+}
+
+.lista-de-tarefas {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -11,15 +24,4 @@ ul {
     color: white;
 
   }
-/* 
-  .task-nome {
-    font-weight: bold;
-  }
-  
-  .task-marker {
 
-    width: 10px;
- 
-    margin-left: 10px;
-  } */
-  

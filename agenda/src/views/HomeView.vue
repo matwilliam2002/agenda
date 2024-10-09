@@ -1,20 +1,24 @@
 <template>
   <div id="app">
-    <AppNavbar msg="Minha Marca" />
-    <div>
-      <ul>
+    <AppNavbar/>
+    <div class="conteiner-de-tarefas">
+      <br>
+      <div class="lista-de-tarefas">
         <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" @task-deleted="removeTaskFromList" />
-      </ul>
+      </div>
     </div>
     <router-view />
   </div>
 </template>
 
+<style lang="css">
+@import "../assets/css/HomeView.css";
+</style>
+
 <script>
 import { ref, onMounted } from 'vue';
 import AppNavbar from '@/components/AppNavbar.vue';
 import TaskItem from '@/components/TaskItem.vue';
-import '@/assets/css/HomeView.css'; 
 
 export default {
   name: 'HomeView',
