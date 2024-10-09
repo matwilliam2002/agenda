@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   padding: 50px;
-  background-color: aqua;
+  background-color: white;
 }
 
 .tarefas-criadas {
