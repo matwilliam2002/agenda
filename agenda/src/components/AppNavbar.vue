@@ -1,8 +1,6 @@
 <template>
   <nav class="AppNavbar">
-    <div class="navbar-brand">
-      <router-link to="/" class="navbar-item">Lista de tarefas</router-link>
-    </div>
+    
 
     <div class="navbar-menu">
       <ul class="navbar-start">

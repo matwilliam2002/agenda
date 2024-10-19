@@ -2,11 +2,10 @@
 
   <div class="conteiner">
 
-
     <div class="created-tasks">
       <h3>Tarefas Criadas</h3>
       <div class="tarefas-criadas">
-        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
+        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" @task-deleted="removeTaskFromList" />
       </div>
     </div>
     <div class="create-task">
@@ -44,20 +43,47 @@
   
 </template>
 
+<style lang="css">
+@import "../assets/css/CreateTask.css";
+</style>
+
 <script>
+import {ref, onMounted} from 'vue';
 import TaskItem from '@/components/TaskItem.vue';
-import '@/assets/css/CreateTask.css'; 
 
 export default {
   name: 'CreateTask',
   components: {
     TaskItem
   },
-  data() {
+  setup() {
+    const tasks = ref([]);
+
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/listaTarefa', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await response.json();
+        
+        tasks.value = data;
+      } catch (error) {
+        console.error('Erro ao buscar tarefas:', error);
+      }
+    };
+
+    const removeTaskFromList = (taskId) => {
+      tasks.value = tasks.value.filter(task => task.id !== taskId);
+    };
+
+    onMounted(() => {
+      fetchTasks();
+    });
+
     return {
-      taskName: '',
-      taskColor: '#ffffff',
-      tasks: []
+      tasks,
+      removeTaskFromList
     };
   },
   methods: {
