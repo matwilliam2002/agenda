@@ -1,8 +1,8 @@
 const express = require("express");
-const http = require("http")
-const cors = require("cors")
-const bodyParser = require("body-parser")
-const dotenv = require('dotenv')
+const http = require("http");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const dotenv = require('dotenv');
 
 // caso de erro na importação 
 
@@ -16,8 +16,8 @@ const dotenv = require('dotenv')
 
 
 
-const app = express()
-const server = http.createServer(app)
+const app = express();
+const server = http.createServer(app);
 
 
 
@@ -26,7 +26,7 @@ dotenv.config();
 
 const port = process.env.PORT || 3000;
 
-app.use(express.json())
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
@@ -34,12 +34,12 @@ app.use(cors());
 
 
 // Tabelas e conexao com mysql
-const conexao = require("./infraestrutura/conexao")
-const Tabelas = require("./infraestrutura/Tabelas")
+const conexao = require("./infraestrutura/conexao");
+const Tabelas = require("./infraestrutura/Tabelas");
 
 // rotas 
 
-const rotaTarefa = require("./rotas/rotaTarefa")
+const rotaTarefa = require("./rotas/rotaTarefa");
 
 
 

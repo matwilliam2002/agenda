@@ -13,7 +13,7 @@
 }
 
 .task-item:hover {
-  transform: translateZ(15px); 
+  transform: translateZ(10px); 
 }
 
 
