@@ -1,0 +1,70 @@
+
+
+.task-item {
+  display: grid;
+  grid-template-columns: 1fr 12fr 1fr;
+  color: black;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  background-color: #f5f3f3;
+}
+
+.task-item:hover {
+  transform: translateZ(10px); 
+}
+
+
+.task-nome {
+  font-weight: bold;
+  word-break: break-word;
+  white-space: normal;
+  padding: 5px;
+}
+
+.task-marker {
+  width: 80%;
+  height: 100%; 
+  border-radius: 8px 0px 0px 8px;
+}
+
+.icone {
+  cursor: pointer;
+  padding: 5px;
+  width: 40px;
+}
+
+@property --fill{
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 0%;
+}
+
+.icone:hover {
+  color: greenyellow;
+  --fill: 100%;
+}
+
+.icone::after {
+  width: 40px;
+  height: 34px;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  inset: -5px;
+  border-radius: inherit;
+
+  background-color: conic-gradient(
+    greenyellow var(--fill),
+    transparent var(--fill));
+  
+  transition: var(--fill) 0.6s ease-in-out;
+}
+
+.acoes {
+  grid-column: 1fr 1fr;
+}
+
+

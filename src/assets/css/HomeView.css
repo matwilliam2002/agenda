@@ -1,0 +1,27 @@
+/* Estilos adicionais para as tarefas */
+
+.conteiner-de-tarefas {
+  background-color: white;
+}
+
+.lista-de-tarefas {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+
+  }
+

@@ -18,4 +18,19 @@ rota.post("/adicionaTarefa",async (req,res)=>{
     Tarefa.adiciona({nome,cor} )
 })
 
+rota.delete("/deletarTarefa", async (req,res)=>{
+    const id = req.body.id;
+    try {
+        
+        await Tarefa.deletar(id); 
+    
+        res.status(200).json({ message: 'Tarefa deletada com sucesso' });
+    } 
+    catch (error) {
+        res.status(500).json({ message: 'Erro ao deletar tarefa', error: error.message });
+    }
+    
+  
+ 
+})
 module.exports = rota

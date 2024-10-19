@@ -3,6 +3,12 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   padding: 50px;
+  background-color: white;
+}
+
+.tarefas-criadas {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
 }
 
 .create-task {
