@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import AboutView from '@/views/AboutView.vue';
 import TarefasView from '@/views/TarefasView.vue';
+import LoginView from '@/views/LoginView.vue';
+import CadastroView from '@/views/CadastroView.vue';
 
 Vue.use(VueRouter);
 
@@ -26,6 +28,16 @@ const routes = [
     name: 'Tarefas',
     component: TarefasView,
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginView,
+  },
+  {
+    path: '/cadastro',
+    name: 'Cadastro',
+    component: CadastroView,
+  }
 ];
 
 const router = new VueRouter({

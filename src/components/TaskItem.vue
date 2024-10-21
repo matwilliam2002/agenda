@@ -12,7 +12,6 @@
 
 <style lang="css">
 @import "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded";
-@import "../assets/css/TaskItem.css";
 </style>
 
 <script>
@@ -52,7 +51,7 @@ export default {
     },
     async checkTask() {
       try {
-        const response = await fetch(`http://localhost:3000/deletarTarefa`, {
+        const response = await fetch(`http://localhost:3000/checkTask`, {
           method: 'DELETE',
           body:JSON.stringify({
             id:this.task.id
@@ -80,3 +79,74 @@ export default {
 </script>
 
 
+
+<style>
+
+  .task-item {
+    display: grid;
+    grid-template-columns: 1fr 12fr 1fr;
+    color: black;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    background-color: #f5f3f3;
+  }
+
+  .task-item:hover {
+    transform: scale(1.01);
+  }
+
+
+  .task-nome {
+    font-weight: bold;
+    word-break: break-word;
+    white-space: normal;
+    padding: 5px;
+  }
+
+  .task-marker {
+    width: 80%;
+    height: 100%; 
+    border-radius: 8px 0px 0px 8px;
+  }
+
+  .icone {
+    cursor: pointer;
+    padding: 5px;
+    width: 40px;
+  }
+
+  @property --fill{
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 0%;
+  }
+
+  .icone:hover {
+    color: #2c3e50;
+    --fill: 100%;
+  }
+
+  .icone::after {
+    width: 40px;
+    height: 34px;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    inset: -5px;
+    border-radius: inherit;
+
+    background-color: conic-gradient(
+      #2c3e50 var(--fill),
+      transparent var(--fill));
+    
+    transition: var(--fill) 0.6s ease-in-out;
+  }
+
+  .acoes {
+    grid-column: 1fr 1fr;
+  }
+
+</style>

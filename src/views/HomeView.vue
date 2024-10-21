@@ -11,9 +11,7 @@
   </div>
 </template>
 
-<style lang="css">
-@import "../assets/css/HomeView.css";
-</style>
+
 
 <script>
 import { ref, onMounted } from 'vue';
@@ -58,3 +56,32 @@ export default {
   },
 };
 </script>
+
+
+
+<style>
+
+  .conteiner-de-tarefas {
+    background-color: white;
+  }
+
+  .lista-de-tarefas {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+
+  }
+
+</style>

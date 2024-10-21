@@ -6,6 +6,8 @@
       <ul class="navbar-start">
         <li><router-link to="/home" class="navbar-item">Home</router-link></li>
         <li><router-link to="/tarefas" class="navbar-item">Tarefas</router-link></li>
+        <li><router-link to="/login" class="navbar-item">Login</router-link></li>
+        <li><router-link to="/cadastro" class="navbar-item">Cadastro</router-link></li>
       </ul>
     </div>
   </nav>

@@ -43,9 +43,6 @@
   
 </template>
 
-<style lang="css">
-@import "../assets/css/CreateTask.css";
-</style>
 
 <script>
 import {ref, onMounted} from 'vue';
@@ -123,3 +120,64 @@ export default {
   }
 };
 </script>
+
+
+
+
+<style>
+
+  .conteiner{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 50px;
+    background-color: white;
+  }
+
+  .create-task {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+  }
+    
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  input[type="color"] {
+    width: 100%;
+    padding: 5px;
+    border: none;
+  }
+
+
+  .add-task {
+    background-color: #42b983;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+    
+  .add-task:hover {
+    background-color: #37946e;
+  }
+
+</style>
