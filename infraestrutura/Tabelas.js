@@ -59,6 +59,7 @@ class Tabelas{
                             descricao VARCHAR(255),
                             pessoa_id int,
                             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                            concluido BOOL,
                             PRIMARY KEY (id), 
                             FOREIGN KEY (pessoa_id) REFERENCES Pessoa(id)
                     );`
