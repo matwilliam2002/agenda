@@ -10,9 +10,10 @@
     </div>
 </template>
 
+<style src="../assets/css/TaskItem.css"></style>
+
 <style lang="css">
 @import "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded";
-@import "../assets/css/TaskItem.css";
 </style>
 
 <script>

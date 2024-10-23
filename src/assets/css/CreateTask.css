@@ -8,7 +8,7 @@
 
 .tarefas-criadas {
   transform-style: preserve-3d;
-  transform: perspective(1000px);
+  transform: perspective(100px);
 }
 
 .create-task {
